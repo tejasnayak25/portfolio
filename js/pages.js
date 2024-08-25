@@ -14,26 +14,72 @@ let pages = {
     "home": {
         navigate: () => {
             render("home");
+            var textWrapper = document.querySelector('#name');
+            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+            anime({
+                targets: "#hire-btn-arrow",
+                right: 0
+            });
+            anime({
+                targets: '#name .letter',
+                opacity: [0,1],
+                easing: "easeInOutQuad",
+                duration: 1000,
+                delay: (el, i) => 150 * (i+1)
+            });
+            anime({
+                targets: '.img-round',
+                borderRadius: "50%",
+                duration: 1500
+            });
+            anime({
+                targets: '.img',
+                marginTop: 0,
+                duration: 1500
+            });
         }
     },
     "about": {
         navigate: () => {
-            render("about")
+            render("about");
+            anime({
+                targets: '.img-round',
+                borderRadius: "50%",
+                duration: 1500
+            });
+            anime({
+                targets: '.img',
+                marginTop: 0,
+                duration: 1500
+            });
         }
     },
     "skills": {
         navigate: () => {
-            render("skills")
+            render("skills");
+
+            anime({
+                targets: '.skills-container',
+                scale: 1.35,
+                duration: 2000
+            });
         }
     },
     "projects": {
         navigate: () => {
-            render("projects")
+            render("projects");
         }
     },
     "contact": {
         navigate: () => {
-            render("contact")
+            render("contact");
+
+            anime({
+                targets: '.skills-container',
+                scale: 1.35,
+                duration: 2000
+            });
         }
     }
 }
@@ -44,15 +90,29 @@ nav.querySelectorAll("a").forEach(a => {
         url.searchParams.set("page", a.getAttribute("data-target"));
         location.href = url.href;
     }
+
+    a.onmouseover = () => {
+        anime({
+            targets: a.querySelector("div"),
+            width: "100%",
+            easing: 'easeInOutExpo',
+            duration: 500
+        });
+    }
+
+    a.onmouseout = () => {
+        anime({
+            targets: a.querySelector("div"),
+            width: "0%",
+            easing: 'easeInOutExpo',
+            duration: 500
+        });
+    }
 });
 
 nav.querySelectorAll("a").forEach(a => {
     if(a.getAttribute("data-target") === page) {
-        hideCurrentPage();
-        nav.querySelector(".active-link").classList.remove("active-link");
         a.classList.add("active-link");
         pages[page].navigate();
     }
 });
-
-// nav.querySelector("a").nextElementSibling.nextElementSibling.nextElementSibling.click();

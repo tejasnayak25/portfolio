@@ -1,20 +1,20 @@
-let colors = [ "yellow", "blue", "cyan", "purple", "indigo", "red", "lightpink", "aqua", "brown", "skyblue", "royalblue"];
+let colors = [ "#2f4f4f", "#080808", "#3d0c02", "#3b3c36", "#52593b", "#704241", "#555d50", "#36454f", "#353839", "#32174d", "#1c2841"];
 
 class Project {
     constructor(data) {
         let tag = document.createElement("div");
-        tag.className = "p-4 md:w-1/3 w-full";
+        tag.className = "p-4 lg:w-1/3 md:w-1/2 w-full";
 
         tag.innerHTML = `
             <div class="h-fit border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <div class="lg:h-48 md:h-36 h-36 w-full object-cover object-center flex justify-center items-center" style="background-image:linear-gradient(to right top, ${colors[Math.floor(Math.random()*10)]},${colors[Math.floor(Math.random()*10)]});">
-                    <h1 class="title-font text-2xl text-center font-bold text-gray-200 drop-shadow-lg mb-3 uppercase text-shadow-custom">${data.name}</h1>
+                    <h1 class="title-font text-2xl text-center font-bold text-gray-200 drop-shadow-lg mb-3 uppercase">${data.name}</h1>
                 </div>
                 <div class="p-6">
                     <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">${data.language ?? "Other"}</h2>
                     <p class="leading-relaxed mb-3">${data.description ?? ""}</p>
                     <div class="flex items-center flex-wrap">
-                        <a href="${data.html_url}" class="text-[#F48C06] inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                        <a href="${data.html_url}" target="_blank" class="text-[#F48C06] inline-flex items-center md:mb-2 lg:mb-0">Learn More
                         <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M5 12h14"></path>
                             <path d="M12 5l7 7-7 7"></path>

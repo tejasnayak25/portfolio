@@ -30,82 +30,105 @@
         <a class="flex title-font font-medium items-center text-slate-100">
           <span class="ml-3 text-xl">Tejas Nayak</span>
         </a>
-        <nav id="nav" class="transition-all md:ml-auto md:mr-auto z-[25] overflow-hidden md:flex hidden md:flex-row flex-col md:relative absolute md:top-0 top-[5.5rem] left-0 flex-wrap md:h-auto h-0 md:items-center items-start md:w-auto w-full text-base md:justify-center justify-start md:p-0 p-10 pt-0 md:gap-0 gap-8 bg-[#03071E] border-[#F48C06] md:border-b-0 border-b-2">
-            <a data-target="home" class="mr-5 active-link text-slate-100 hover:text-[#F48C06] cursor-pointer">Home</a>
-            <a data-target="about" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer">About</a>
-            <a data-target="skills" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer">Skills</a>
-            <a data-target="projects" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer">Projects</a>
-            <a data-target="contact" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer">Contact</a>
+        <nav id="nav" class="transition-all md:ml-auto md:mr-auto z-[25] overflow-hidden md:flex hidden md:flex-row flex-col md:relative absolute md:top-0 top-[5.5rem] left-0 flex-wrap md:h-auto h-0 md:items-center items-start md:w-auto w-full text-base md:justify-center justify-start md:p-0 p-10 pt-0 md:gap-0 gap-5 bg-[#03071E] border-[#F48C06] md:border-b-0 border-b-2">
+            <a data-target="home" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer relative py-2">
+                <p class="w-full">Home</p>
+                <div class="absolute bottom-0 bg-[#F48C06] h-0.5 rounded-full w-0"></div>
+            </a>
+            <a data-target="about" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer relative py-2">
+                <p class="w-full">About</p>
+                <div class="absolute bottom-0 bg-[#F48C06] h-0.5 rounded-full w-0"></div>
+            </a>
+            <a data-target="skills" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer relative py-2">
+                <p class="w-full">Skills</p>
+                <div class="absolute bottom-0 bg-[#F48C06] h-0.5 rounded-full w-0"></div>
+            </a>
+            <a data-target="projects" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer relative py-2">
+                <p class="w-full">Projects</p>
+                <div class="absolute bottom-0 bg-[#F48C06] h-0.5 rounded-full w-0"></div>
+            </a>
+            <a data-target="contact" class="mr-5 text-slate-100 hover:text-[#F48C06] cursor-pointer relative py-2">
+                <p class="w-full">Contact</p>
+                <div class="absolute bottom-0 bg-[#F48C06] h-0.5 rounded-full w-0"></div>
+            </a>
         </nav>
-        <button class="btn btn-sm md:inline-flex hidden min-w-32 items-center bg-[#F48C06] hover:bg-[#E85D04] border-0 py-1 px-5 focus:outline-none text-slate-200 rounded-full text-base relative">
+        <a href="https://www.linkedin.com/in/tejas-nayak-3110a7220" target="_blank" class="btn btn-sm md:inline-flex hidden min-w-32 items-center bg-[#F48C06] hover:bg-[#E85D04] border-0 py-1 px-5 focus:outline-none text-slate-200 rounded-full text-base relative">
             <p class="w-full text-left">Hire Me</p>
             <span class="w-8 h-7 m-0.5 bg-slate-100 bg-opacity-40 absolute right-0 top-0 flex justify-center items-center rounded-full">
                 <i class=" uil uil-arrow-right text-xl -mt-1"></i>
             </span>
-        </button>
+        </a>
         <button id="mobile-menu-btn" class="btn btn-ghost btn-square rounded-md md:hidden block text-slate-100">
             <i class=" material-symbols-rounded">menu</i>
         </button>
       </div>
     </header>
-    <section id="home" class=" active-page w-full flex-1 flex md:flex-row flex-col-reverse gap-5 md:p-0 p-5">
+    <section id="home" class=" active-page w-full flex-1 hidden md:flex-row flex-col-reverse gap-5 md:p-0 p-5">
         <div class=" md:w-1/2 w-full md:h-full h-1/2 flex flex-col justify-center items-center">
-            <div class="">
+            <div>
                 <p class="md:text-2xl text-lg mb-1">Hello</p>
-                <p class="md:text-7xl text-4xl font-semibold mb-5">I'm <span class="text-[#F48C06] playball-regular md:text-8xl text-5xl">Tejas</span></p>
+                <p class="md:text-7xl text-4xl font-semibold mb-5">I'm <span id="name" class="text-[#F48C06] playball-regular md:text-8xl text-5xl">Tejas</span></p>
                 <p class="md:text-xl text-base uppercase font-semibold text-slate-400 md:mb-10 mb-5">Web-developer</p>
-                <button class="btn md:mb-20 mb-5 btn-wide min-w-32 inline-flex items-center bg-[#F48C06] hover:bg-[#E85D04] border-0 py-1 px-5 focus:outline-none text-slate-200 rounded-full text-base relative">
+                <a href="https://www.linkedin.com/in/tejas-nayak-3110a7220" target="_blank" class="btn md:mb-20 mb-5 btn-wide min-w-32 inline-flex items-center bg-[#F48C06] hover:bg-[#E85D04] border-0 py-1 px-5 focus:outline-none text-slate-200 rounded-full text-base relative">
                     <p class="w-full text-left">Hire Me</p>
-                    <span class="w-12 h-11 m-0.5 bg-slate-100 bg-opacity-40 absolute right-0 top-0 flex justify-center items-center rounded-full">
+                    <span id="hire-btn-arrow" class="w-12 h-11 m-0.5 bg-slate-100 bg-opacity-40 absolute right-10 top-0 flex justify-center items-center rounded-full">
                         <i class=" uil uil-arrow-right text-3xl -mt-1"></i>
                     </span>
-                </button>
+                </a>
                 <div class=" flex gap-3 w-full md:justify-start justify-center">
-                    <button class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
+                    <a href="mailto:tejasnayak25@outlook.com" class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
                         <i class="material-symbols-rounded" style="font-size: 1.25rem;">mail</i>
-                    </button>
-                    <button class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
+                    </a>
+                    <a href="https://instagram.com/tjnayak" target="_blank" class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
                         <i class="uil uil-instagram text-xl"></i>
-                    </button>
-                    <button class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
+                    </a>
+                    <a href="https://youtube.com/@tjsmediacorner" target="_blank" class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
                         <i class="uil uil-youtube text-xl"></i>
-                    </button>
-                    <button class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
+                    </a>
+                    <a href="https://github.com/tejasnayak25" target="_blank" class="btn btn-circle btn-outline hover:bg-[#F48C06] hover:text-slate-100 border-slate-100 text-slate-100">
                         <i class="uil uil-github text-xl"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
         <div class=" md:w-1/2 w-full md:h-full h-1/2 flex justify-center items-center">
             <div class=" -mt-5 rounded-b-full md:max-w-[25rem] max-w-52 md:max-h-[30rem] max-h-64 w-full overflow-hidden relative">
-                <div class=" w-full aspect-square rounded-full border-b-2 absolute bottom-0 z-20 border-[#F48C06]"></div>
-                <div class=" w-full aspect-square rounded-full border-2 absolute bottom-0 z-[18] border-t-0 border-[#F48C06]"></div>
-                <img src="./images/photo.png" class=" w-full object-cover relative z-[19] origin-bottom scale-95 grayscale" style="image-rendering:optimizeQuality;" alt="">
-                <div class=" from-[#e7a146] to-[#F48C06] w-full aspect-square rounded-full bg-gradient-to-b absolute bottom-0"></div>
+                <div class=" img-round w-full aspect-square border-b-2 absolute bottom-0 z-20 border-[#F48C06]"></div>
+                <div class=" img-round w-full aspect-square border-2 absolute bottom-0 z-[18] border-t-0 border-[#F48C06]"></div>
+                <img src="./images/photo.png" class=" w-full object-cover relative z-[19] origin-bottom scale-95 grayscale mt-10 img" style="image-rendering:optimizeQuality;" alt="">
+                <div class=" img-round from-[#e7a146] to-[#F48C06] w-full aspect-square bg-gradient-to-b absolute bottom-0"></div>
             </div>
         </div>
     </section>
-    <section id="about" class=" w-full flex-1 hidden md:flex-row-reverse flex-col-reverse gap-5 md:p-0 p-5">
-        <div class=" md:w-1/2 w-full md:h-full h-1/2 flex flex-col justify-center items-center">
-            <div class=" w-full h-full py-5">
-                <p class="md:text-2xl text-lg mb-1">About</p>
-                <p class="md:text-xl text-base mb-1">
-                    I'm a software developer
+    <section id="about" class=" w-full flex-1 hidden md:flex-row-reverse flex-col-reverse md:p-0 p-5">
+        <div class=" md:w-1/2 w-full md:h-full h-1/2 flex flex-col justify-center items-center md:max-h-[calc(100dvh-88px)] max-h-[calc(50dvh-44px)] overflow-y-scroll">
+            <div class=" w-full h-full py-5 flex flex-col">
+                <p class="md:text-2xl text-xl text-slate-300 text-center underline underline-offset-[20px] mb-8">About</p>
+                <p class="text-base mb-1 text-slate-300 flex-1 px-5">
+                    Hi, I'm Tejas Nayak, a passionate and self-taught fullstack developer with over 2 years of experience in building dynamic and user-focused web applications. My journey into the world of coding began with curiosity and quickly grew into a full-fledged passion for crafting innovative digital solutions.
+                    <br><br>
+                    Over the past two years, I've honed my skills through various self-driven projects, exploring different facets of software development. My toolkit includes a diverse set of technologies, including Flutter, C, C++, Javascript, Python, Next.js, React.js, Three.js, MySQL, Node.js, Firebase, Tailwind CSS, and more. From creating AI-powered tools to developing complex web applications, I've always been driven by a desire to build technology that empowers creativity.
+                    <br><br>
+                    While I haven't had formal company experience, my work speaks for itself. I've built and deployed a range of applications that showcase my ability to take an idea from concept to completion, solving real-world problems along the way. I believe that my diverse project experience has given me a strong foundation in both front-end and back-end development, and I'm constantly learning and adapting to new technologies.
+                    <br><br>
+                    Whether it's through my personal projects or contributions to open-source communities, I'm committed to using my skills to make a positive impact. I'm always on the lookout for new challenges and opportunities to grow as a developer.
+                    <br><br>
+                    Thanks for stopping by! Feel free to explore my portfolio to see what I've been working on.
                 </p>
                 </div>
             </div>
         </div>
         <div class=" md:w-1/2 w-full md:h-full h-1/2 flex justify-center items-center">
             <div class=" -mt-5 rounded-b-full md:max-w-[25rem] max-w-52 md:max-h-[30rem] max-h-64 w-full overflow-hidden relative">
-                <div class=" w-full aspect-square rounded-full border-b-2 absolute bottom-0 z-20 border-[#F48C06]"></div>
-                <div class=" w-full aspect-square rounded-full border-2 absolute bottom-0 z-[18] border-t-0 border-[#F48C06]"></div>
-                <img src="./images/photo.png" class=" w-full object-cover relative z-[19] origin-bottom scale-95 grayscale" style="image-rendering:optimizeQuality;" alt="">
-                <div class=" from-[#e7a146] to-[#F48C06] w-full aspect-square rounded-full bg-gradient-to-b absolute bottom-0"></div>
+                <div class="img-round w-full aspect-square border-b-2 absolute bottom-0 z-20 border-[#F48C06]"></div>
+                <div class="img-round w-full aspect-square border-2 absolute bottom-0 z-[18] border-t-0 border-[#F48C06]"></div>
+                <img src="./images/photo.png" class=" w-full object-cover relative z-[19] origin-bottom scale-95 grayscale mt-10 img" style="image-rendering:optimizeQuality;" alt="">
+                <div class="img-round from-[#e7a146] to-[#F48C06] w-full aspect-square bg-gradient-to-b absolute bottom-0"></div>
             </div>
         </div>
     </section>
     <section id="skills" class=" w-full flex-1 hidden md:p-0 p-5 justify-center overflow-hidden">
-        <div class=" md:flex hidden flex-col justify-center items-center flex-1 ml-5">
+        <div class="skills-container md:flex hidden flex-col justify-center items-center flex-1 ml-5" style="scale: 0.75;">
             <div class=" flex gap-14 -mt-20 w-full justify-center">
                 <div class=" w-24 h-24 rotate-45 rounded-md origin-left overflow-hidden p-3 bg-slate-700 cursor-pointer"></div>
                 <div class=" w-24 h-24 rotate-45 rounded-md origin-left overflow-hidden p-3 bg-slate-700 cursor-pointer"></div>
@@ -173,7 +196,7 @@
                 <div class=" w-24 h-24 rotate-45 rounded-md origin-left overflow-hidden p-3 bg-slate-700 cursor-pointer"></div>
             </div>
         </div>
-        <div class=" md:hidden flex flex-col justify-start ml-5 items-center flex-1">
+        <div class="skills-container md:hidden flex flex-col justify-start ml-5 items-center flex-1" style="scale: 0.75;">
             <div class=" flex gap-10 w-full justify-center">
                 <div class=" w-20 h-20 rotate-45 rounded-md origin-left overflow-hidden p-3 bg-slate-700 cursor-pointer"></div>
                 <div class=" w-20 h-20 rotate-45 rounded-md origin-left overflow-hidden p-0 bg-slate-200 hover:bg-slate-300 cursor-pointer">
@@ -255,46 +278,50 @@
     </section>
     <section id="projects" class=" w-full flex-1 hidden md:p-0 p-5 justify-center flex-wrap overflow-hidden overflow-y-auto">
     </section>
-    <section id="contact" class=" active-page w-full flex-1 hidden md:flex-row flex-col-reverse justify-center items-center gap-5 md:p-0 p-5">
-        <div class=" lg:w-1/5 md:w-1/4 w-4/5 flex flex-col gap-4">
-            <div class=" w-full flex rounded-full border border-slate-400">
+    <section id="contact" class="bg-[#03071E] active-page w-full flex-1 hidden md:flex-row flex-col-reverse justify-center items-center gap-5" style="background-image: url(./images/poster.jpg);background-blend-mode:difference;background-repeat: no-repeat;background-size: cover;background-position: center;">
+        <div class=" lg:w-1/5 md:w-1/4 w-4/5 p-5 bg-[#03071E] border-2 border-slate-400 rounded-[2rem] flex flex-col gap-4 -mt-11 skills-container" style="scale: 0.75;">
+            <a href="mailto:tejasnayak25@outlook.com" class="btn bg-transparent justify-normal items-center w-full flex flex-nowrap text-slate-200 rounded-full border border-slate-400 cursor-pointer hover:bg-[#F48C06]">
                 <span class=" px-3 flex justify-center items-center aspect-square">
                     <i class="material-symbols-rounded" style="font-size: 1.5rem;">mail</i>
                 </span>
                 <p class=" text-center -ml-10 w-full p-3 uppercase">Gmail</p>
-            </div>
-            <div class=" w-full flex rounded-full border border-slate-400">
+            </a>
+            <a href="https://instagram.com/tjnayak" target="_blank" class="btn bg-transparent justify-normal items-center w-full flex flex-nowrap text-slate-200 rounded-full border border-slate-400 cursor-pointer hover:bg-[#F48C06]">
                 <span class=" px-3 flex justify-center items-center aspect-square">
                     <i class="uil uil-instagram text-2xl"></i>
                 </span>
                 <p class=" text-center -ml-10 w-full p-3 uppercase">Instagram</p>
-            </div>
-            <div class=" w-full flex rounded-full border border-slate-400">
+            </a>
+            <a href="https://youtube.com/@tjsmediacorner" target="_blank" class="btn bg-transparent justify-normal items-center w-full flex flex-nowrap text-slate-200 rounded-full border border-slate-400 cursor-pointer hover:bg-[#F48C06]">
                 <span class=" px-3 flex justify-center items-center aspect-square">
                     <i class="uil uil-youtube text-2xl"></i>
                 </span>
                 <p class=" text-center -ml-10 w-full p-3 uppercase">Youtube</p>
-            </div>
-            <div class=" w-full flex rounded-full border border-slate-400">
+            </a>
+            <a href="https://github.com/tejasnayak25" target="_blank" class="btn bg-transparent justify-normal items-center w-full flex flex-nowrap text-slate-200 rounded-full border border-slate-400 cursor-pointer hover:bg-[#F48C06]">
                 <span class=" px-3 flex justify-center items-center aspect-square">
                     <i class="uil uil-github text-2xl"></i>
                 </span>
                 <p class=" text-center -ml-10 w-full p-3 uppercase">Github</p>
-            </div>
-            <div class=" w-full flex rounded-full border border-slate-400">
+            </a>
+            <a href="https://www.linkedin.com/in/tejas-nayak-3110a7220" target="_blank" class="btn bg-transparent justify-normal items-center w-full flex flex-nowrap text-slate-200 rounded-full border border-slate-400 cursor-pointer hover:bg-[#F48C06]">
                 <span class=" px-3 flex justify-center items-center aspect-square">
                     <i class="uil uil-linkedin text-2xl"></i>
                 </span>
                 <p class=" text-center -ml-10 w-full p-3 uppercase">LinkedIn</p>
-            </div>
-            <div class=" w-full flex rounded-full border border-slate-400">
+            </a>
+            <a href="https://x.com/tejasnayak25" target="_blank" class="btn bg-transparent justify-normal items-center w-full flex flex-nowrap text-slate-200 rounded-full border border-slate-400 cursor-pointer hover:bg-[#F48C06]">
                 <span class=" px-3 flex justify-center items-center aspect-square">
                     <i class="uil uil-twitter text-2xl"></i>
                 </span>
                 <p class=" text-center -ml-10 w-full p-3 uppercase">Twitter / X</p>
-            </div>
+            </a>
         </div>
+        <p class="absolute bottom-0 w-full text-center bg-[#03071E] text-slate-400 p-3">
+            Photo by <a class="underline" href="https://unsplash.com/@aronvisuals?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Aron Visuals</a> on <a class="underline" href="https://unsplash.com/photos/light-decorations-in-dark-area-bZZp1PmHI0E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+        </p>
     </section>
+    <script src="./js/anime.js"></script>
     <script src="./js/global.js"></script>
     <script src="./js/mobile-ui.js"></script>
     <script src="./js/pages.js"></script>
