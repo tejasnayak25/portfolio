@@ -120,7 +120,7 @@ document.getElementById("share-btn").onclick = () => {
     let shareData = {
         url: url.href,
         title: "Tejas Nayak",
-        text: "Hi, I'm Tejas Nayak, a passionate and self-taught fullstack developer with over 2 years of experience in building dynamic and user-focused web applications..."
+        text: "Hi, I'm Tejas Nayak, a passionate fullstack developer with over 2 years of experience in building dynamic and user-focused web applications..."
     };
     
     if(navigator.canShare(shareData)) {
