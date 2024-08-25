@@ -51,8 +51,10 @@ if(page === "projects") {
             render("projects");
     
             res.forEach(element => {
-                let proj = new Project(element);
-                projects.append(proj.tag);
+                if(element.topics.includes("project")) {
+                    let proj = new Project(element);
+                    projects.append(proj.tag);
+                }
             });
 
             projects.scrollTop = 100;
