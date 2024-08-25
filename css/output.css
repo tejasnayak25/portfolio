@@ -8440,6 +8440,14 @@ html:has(.drawer-open.drawer-open) {
   margin-right: 0.5rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
+.mt-40 {
+  margin-top: 10rem;
+}
+
 .block {
   display: block;
 }
@@ -9058,6 +9066,10 @@ html:has(.drawer-open.drawer-open) {
 
 .underline-offset-\[20px\] {
   text-underline-offset: 20px;
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .shadow {

@@ -52,5 +52,13 @@ if(page === "projects") {
                 projects.append(proj.tag);
             });
         }
+
+        anime({
+            targets: '#projects',
+            marginTop: 0,
+            opacity: 1,
+            duration: 500,
+            easing: 'easeInOutExpo'
+        });
     });
 }

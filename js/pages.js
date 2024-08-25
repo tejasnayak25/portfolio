@@ -58,14 +58,6 @@ let pages = {
     "skills": {
         navigate: () => {
             render("skills");
-
-            anime({
-                targets: '.skills-container',
-                opacity: 1,
-                scale: 1.35,
-                duration: 1500,
-                easing: "easeInOutExpo"
-            });
         }
     },
     "projects": {
