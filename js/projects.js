@@ -46,22 +46,24 @@ if(page === "projects") {
     fetch("https://api.github.com/users/tejasnayak25/repos").then(res=>res.json()).then(res=>{
         if(res && res.length > 0) {
             projects.innerHTML = "";
+
+            hideCurrentPage();
+            render("projects");
     
             res.forEach(element => {
                 let proj = new Project(element);
                 projects.append(proj.tag);
             });
+
+            projects.scrollTop = 100;
+
+            anime({
+                targets: '#projects',
+                scrollTop:0,
+                opacity: 1,
+                duration: 1000,
+                easing: 'easeInOutExpo'
+            });
         }
-
-        projects.scrollTop = 100;
-
-        anime({
-            targets: '#projects',
-            // marginTop: 0,
-            scrollTop:0,
-            opacity: 1,
-            duration: 1000,
-            easing: 'easeInOutExpo'
-        });
     });
 }

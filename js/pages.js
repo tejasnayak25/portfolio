@@ -62,7 +62,7 @@ let pages = {
     },
     "projects": {
         navigate: () => {
-            render("projects");
+            render("loader");
         }
     },
     "contact": {
