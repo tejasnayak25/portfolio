@@ -53,11 +53,14 @@ if(page === "projects") {
             });
         }
 
+        projects.scrollTop = 100;
+
         anime({
             targets: '#projects',
-            marginTop: 0,
+            // marginTop: 0,
+            scrollTop:0,
             opacity: 1,
-            duration: 500,
+            duration: 1000,
             easing: 'easeInOutExpo'
         });
     });

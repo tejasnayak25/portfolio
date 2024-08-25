@@ -8330,11 +8330,6 @@ html:has(.drawer-open.drawer-open) {
   margin: 0.125rem;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -8416,6 +8411,10 @@ html:has(.drawer-open.drawer-open) {
   margin-right: 0.25rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .mr-3 {
   margin-right: 0.75rem;
 }
@@ -8436,16 +8435,12 @@ html:has(.drawer-open.drawer-open) {
   margin-top: 0.75rem;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
+.mt-60 {
+  margin-top: 15rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
-.mt-40 {
-  margin-top: 10rem;
+.mt-0 {
+  margin-top: 0px;
 }
 
 .block {
@@ -8470,10 +8465,6 @@ html:has(.drawer-open.drawer-open) {
 
 .table {
   display: table;
-}
-
-.\!grid {
-  display: grid !important;
 }
 
 .grid {
@@ -8703,6 +8694,10 @@ html:has(.drawer-open.drawer-open) {
   gap: 3.5rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .gap-3 {
   gap: 0.75rem;
 }
@@ -8713,10 +8708,6 @@ html:has(.drawer-open.drawer-open) {
 
 .gap-5 {
   gap: 1.25rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
 }
 
 .overflow-hidden {
