@@ -61,8 +61,10 @@ let pages = {
 
             anime({
                 targets: '.skills-container',
+                opacity: 1,
                 scale: 1.35,
-                duration: 2000
+                duration: 1500,
+                easing: "easeInOutExpo"
             });
         }
     },
@@ -116,3 +118,20 @@ nav.querySelectorAll("a").forEach(a => {
         pages[page].navigate();
     }
 });
+
+document.getElementById("share-btn").onclick = () => {
+    let url = new URL(location.href);
+    url.searchParams.keys().forEach(key => {
+        url.searchParams.delete(key);
+    });
+
+    let shareData = {
+        url: url.href,
+        title: "Tejas Nayak",
+        text: "Hi, I'm Tejas Nayak, a passionate and self-taught fullstack developer with over 2 years of experience in building dynamic and user-focused web applications..."
+    };
+    
+    if(navigator.canShare(shareData)) {
+        navigator.share(shareData);
+    }
+}

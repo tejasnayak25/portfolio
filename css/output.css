@@ -8290,24 +8290,16 @@ html:has(.drawer-open.drawer-open) {
   right: 0px;
 }
 
+.right-10 {
+  right: 2.5rem;
+}
+
 .top-0 {
   top: 0px;
 }
 
 .top-\[5\.5rem\] {
   top: 5.5rem;
-}
-
-.right-3 {
-  right: 0.75rem;
-}
-
-.right-10 {
-  right: 2.5rem;
-}
-
-.-bottom-2 {
-  bottom: -0.5rem;
 }
 
 .isolate {
@@ -8336,6 +8328,11 @@ html:has(.drawer-open.drawer-open) {
 
 .m-0\.5 {
   margin: 0.125rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .mx-auto {
@@ -8431,12 +8428,16 @@ html:has(.drawer-open.drawer-open) {
   margin-top: 0.25rem;
 }
 
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
 
-.mt-10 {
-  margin-top: 2.5rem;
+.mr-2 {
+  margin-right: 0.5rem;
 }
 
 .block {
@@ -8463,12 +8464,12 @@ html:has(.drawer-open.drawer-open) {
   display: table;
 }
 
-.grid {
-  display: grid;
-}
-
 .\!grid {
   display: grid !important;
+}
+
+.grid {
+  display: grid;
 }
 
 .inline-grid {
@@ -8489,6 +8490,10 @@ html:has(.drawer-open.drawer-open) {
 
 .h-0 {
   height: 0px;
+}
+
+.h-0\.5 {
+  height: 0.125rem;
 }
 
 .h-1\/2 {
@@ -8536,24 +8541,16 @@ html:has(.drawer-open.drawer-open) {
   height: 100%;
 }
 
-.h-2 {
-  height: 0.5rem;
-}
-
-.h-1 {
-  height: 0.25rem;
-}
-
-.h-0\.5 {
-  height: 0.125rem;
-}
-
 .max-h-64 {
   max-height: 16rem;
 }
 
 .max-h-\[calc\(50dvh-44px\)\] {
   max-height: calc(50dvh - 44px);
+}
+
+.w-0 {
+  width: 0px;
 }
 
 .w-12 {
@@ -8582,10 +8579,6 @@ html:has(.drawer-open.drawer-open) {
 
 .w-full {
   width: 100%;
-}
-
-.w-0 {
-  width: 0px;
 }
 
 .min-w-32 {
@@ -8714,8 +8707,8 @@ html:has(.drawer-open.drawer-open) {
   gap: 1.25rem;
 }
 
-.gap-8 {
-  gap: 2rem;
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .overflow-hidden {
@@ -8752,10 +8745,6 @@ html:has(.drawer-open.drawer-open) {
 
 .rounded-md {
   border-radius: 0.375rem;
-}
-
-.rounded-none {
-  border-radius: 0px;
 }
 
 .rounded-b-full {
@@ -8916,14 +8905,14 @@ html:has(.drawer-open.drawer-open) {
   padding-bottom: 0.25rem;
 }
 
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pr-3 {
