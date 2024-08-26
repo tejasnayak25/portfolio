@@ -53,7 +53,7 @@
     </style>
 </head>
 <body class=" text-slate-100 flex flex-col h-dvh" style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-    <header class="text-gray-700 body-font">
+    <header class="text-gray-700 body-font relative z-40">
       <div class="container mx-auto flex flex-wrap p-5 md:justify-normal justify-between items-center">
         <a class="flex title-font font-medium items-center text-slate-100">
           <span class="ml-3 text-xl">Tejas Nayak</span>
@@ -309,7 +309,7 @@
             </div>
         </div>
     </section>
-    <section id="projects" class=" w-full flex-1 hidden md:p-0 p-5 mt-0 opacity-0 justify-center flex-wrap overflow-hidden overflow-y-auto">
+    <section id="projects" class=" w-full flex-1 hidden md:p-0 p-5 md:py-5 py-20 mt-0 opacity-0 justify-center flex-wrap overflow-hidden overflow-y-auto">
     </section>
     <section id="loader" class=" w-full flex-1 hidden md:p-0 p-5 mt-0 justify-center items-center flex-wrap overflow-hidden overflow-y-auto">
         <div class="block loading-dots bg-white w-8 h-5"></div>
@@ -356,6 +356,24 @@
         <p class="absolute bottom-0 w-full text-center bg-[#03071E] text-slate-400 p-3">
             Photo by <a class="underline" href="https://unsplash.com/@aronvisuals?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Aron Visuals</a> on <a class="underline" href="https://unsplash.com/photos/light-decorations-in-dark-area-bZZp1PmHI0E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
         </p>
+    </section>
+    <section id="share-win" class=" hidden justify-center absolute top-0 z-40 items-center bg-[#03071E] bg-opacity-80 w-full h-full p-5">
+        <div class="bg-[#03071E] border-2 md:w-1/4 w-full rounded-xl border-[#F48C06] text-slate-200" role="alert" style="scale: 0.75;opacity: 0;">
+            <p class="font-bold px-5 py-3 border-b-0 border-[#F48C06] flex items-center justify-between">
+                SHARE
+                <button id="share-close" class="btn btn-circle p-0 btn-ghost"><i class=" material-symbols-rounded">close</i></button>
+            </p>
+            <p id="social-share" class=" p-8 pt-0 flex flex-wrap justify-center w-full gap-3">
+                <a id="link-btn" title="Copy Link" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-link-alt text-slate-200 text-3xl"></i></a>
+                <a id="whatsapp-btn" title="Whatsapp" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-whatsapp text-green-400 text-3xl"></i></a>
+                <a id="facebook-btn" title="Facebook" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-facebook text-blue-400 text-3xl"></i></a>
+                <a id="twitter-btn" title="Twitter" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-twitter text-cyan-400 text-3xl"></i></a>
+                <a id="linkedin-btn" title="LinkedIn" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-linkedin text-blue-500 text-3xl"></i></a>
+                <a id="reddit-btn" title="Reddit" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-reddit-alien-alt text-red-500 text-3xl"></i></a>
+                <a id="tumblr-btn" title="Tumblr" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-tumblr text-sky-700 text-3xl"></i></a>
+                <a id="other-btn" title="Other" class=" aspect-square btn btn-circle btn-ghost"><i class="uil uil-share-alt text-slate-200 text-3xl"></i></a>
+            </p>
+        </div>
     </section>
     <script src="./js/anime.min.js"></script>
     <script src="./js/global.js"></script>

@@ -111,19 +111,70 @@ nav.querySelectorAll("a").forEach(a => {
     }
 });
 
+let shareWin = document.getElementById("share-win");
+
+document.getElementById("share-close").onclick = () => {
+    anime({
+        targets: shareWin.firstElementChild,
+        scale: 1,
+        opacity: 0,
+        duration: 500
+    });
+    setTimeout(() => {
+        shareWin.classList.replace("flex", "hidden");
+    }, 500);
+}
+
+let socialshare = document.getElementById("social-share");
+
+let urls = {
+    facebook: "https://www.facebook.com/sharer/sharer.php?u=",
+    twitter: "https://twitter.com/intent/tweet?url=",
+    linkedin: "https://www.linkedin.com/sharing/share-offsite/?url=",
+    whatsapp: "https://api.whatsapp.com/send?text=",
+    reddit: "https://www.reddit.com/submit?url=",
+    tumblr: "https://www.tumblr.com/widgets/share/tool?posttype=link&canonicalUrl="
+}
+
 document.getElementById("share-btn").onclick = () => {
     let url = new URL(location.href);
     url.searchParams.keys().forEach(key => {
         url.searchParams.delete(key);
     });
-
-    let shareData = {
-        url: url.href,
-        title: "Tejas Nayak",
-        text: "Hi, I'm Tejas Nayak, a passionate fullstack developer with over 2 years of experience in building dynamic and user-focused web applications..."
-    };
     
-    if(navigator.canShare(shareData)) {
-        navigator.share(shareData);
-    }
+    socialshare.querySelectorAll("a").forEach(a => {
+        a.onclick = () => {
+            let id = a.id.split("-btn")[0];
+            if(id === "link") {
+                navigator.clipboard.writeText(url.href);
+                let icon = a.querySelector("i");
+                icon.classList.replace("uil-link-alt", "uil-check");
+
+                setTimeout(() => {
+                    icon.classList.replace("uil-check", "uil-link-alt");
+                }, 1000);
+            } else if(id === "other") {
+                let sharedata = {
+                    url: url.href,
+                    title: "Tejas Nayak",
+                    text: "Hi, I'm Tejas Nayak, a passionate fullstack developer with over 2 years of experience in building dynamic and user-focused web applications..."
+                }
+                if(navigator.canShare(sharedata)) {
+                    navigator.share(sharedata);
+                }
+            } else {
+                let shareurl = urls[id];
+                window.open(shareurl + url.href, "_blank");
+            }
+        }
+    });
+
+    shareWin.classList.replace("hidden", "flex");
+
+    anime({
+        targets: shareWin.firstElementChild,
+        scale: 1.35,
+        opacity: 1,
+        duration: 500
+    });
 }
