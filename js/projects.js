@@ -75,7 +75,7 @@ if(page === "projects") {
             if(isMobile) {
                 let div = document.createElement("div");
                 div.className = " background w-full h-full absolute bg-[#03071E] top-0 left-0 bg-opacity-60 z-20 pointer-events-none";
-                projects.append(div);
+                //projects.append(div);
                 projects.addEventListener('scroll', () => {
                     const percentage = getScrollPercent();
                 
