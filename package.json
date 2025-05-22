@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "daisyui": "^4.12.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "portfolio": "file:"
   }
 }
