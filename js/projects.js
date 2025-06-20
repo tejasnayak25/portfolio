@@ -43,7 +43,7 @@ class Project {
 let projects = document.getElementById("projects");
 
 if(page === "projects") {
-    fetch("https://api.github.com/users/tejasnayak25/repos").then(res=>res.json()).then(res=>{
+    fetch("https://api.github.com/users/tejasnayak25/repos?per_page=100&page=1").then(res=>res.json()).then(res=>{
         if(res && res.length > 0) {
             projects.innerHTML = "";
 
