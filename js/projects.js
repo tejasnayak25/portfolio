@@ -73,37 +73,54 @@ if(page === "projects") {
             tl = anime.timeline({ autoplay: false })
         
             if(isMobile) {
-                let div = document.createElement("div");
-                div.className = " background w-full h-full absolute bg-[#03071E]/60 top-0 left-0 z-20 pointer-events-none";
-                //projects.append(div);
-                projects.addEventListener('scroll', () => {
-                    const percentage = getScrollPercent();
-                
-                    tl.seek(tl.duration * (percentage * 0.01));
-                
-                    els.forEach(el => {
-                        if(!el.classList.contains("background")) {
-                            const rect = el.getBoundingClientRect();
-                            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                                // The element is fully visible
-                                anime({
-                                    targets: el,
-                                    scale: 1.15, // or any scale factor you want
-                                    zIndex: 30,
-                                    opacity: 1,
-                                    duration: 500
-                                });
+                // Use IntersectionObserver + CSS transitions to reduce scroll jank
+                const observerOptions = {
+                    root: projects,
+                    rootMargin: '0px',
+                    threshold: [0, 0.5, 0.9, 1]
+                };
+
+                // Ensure minimal style changes: add a class that will be handled by CSS for smooth transitions
+                els.forEach(el => {
+                    el.classList.add('project-observer');
+                });
+
+                const io = new IntersectionObserver((entries) => {
+                    // Batch DOM writes inside rAF
+                    window.requestAnimationFrame(() => {
+                        entries.forEach(entry => {
+                            const el = entry.target;
+                            if (entry.intersectionRatio >= 0.9) {
+                                el.classList.add('in-viewport');
+                                el.style.zIndex = 30;
+                                el.style.opacity = '1';
+                            } else if (entry.intersectionRatio >= 0.5) {
+                                // partially visible
+                                el.classList.add('in-viewport');
+                                el.style.zIndex = 20;
+                                el.style.opacity = '0.75';
                             } else {
-                                anime({
-                                    targets: el,
-                                    scale: 1, // reset scale for non-visible elements
-                                    zIndex: 10,
-                                    opacity: 0.5,
-                                    duration: 500
-                                });
+                                el.classList.remove('in-viewport');
+                                el.style.zIndex = 10;
+                                el.style.opacity = '0.5';
                             }
-                        }
+                        });
                     });
+                }, observerOptions);
+
+                els.forEach(el => io.observe(el));
+
+                // Keep tl sync with scroll percent but throttle rAF to avoid heavy anime calls
+                let ticking = false;
+                projects.addEventListener('scroll', () => {
+                    if (!ticking) {
+                        window.requestAnimationFrame(() => {
+                            const percentage = getScrollPercent();
+                            tl.seek(tl.duration * (percentage * 0.01));
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
                 });
             }
             

@@ -1,16 +1,12 @@
 let mmBtn = document.getElementById("mobile-menu-btn");
-let mmIcon = mmBtn.querySelector("i");
+let mmIcon = mmBtn ? mmBtn.querySelector("i") : null;
 
-mmBtn.onclick = () => {
-    if(nav.classList.contains("h-0")) {
-        nav.classList.replace("h-0", "h-auto");
-        nav.classList.replace("hidden", "flex");
-        mmIcon.innerText = "close";
-    } else {
-        nav.classList.replace("h-auto", "h-0");
-        nav.classList.replace("flex", "hidden");
-        mmIcon.innerText = "menu";
-    }
+if (mmBtn) {
+    mmBtn.addEventListener('click', () => {
+        if (!nav) return;
+        nav.classList.toggle('open');
+        if (mmIcon) mmIcon.innerText = nav.classList.contains('open') ? 'close' : 'menu';
+    });
 }
 
 function checkMobile() {

@@ -1,99 +1,22 @@
-/* Design improvements overrides for the portfolio - new styles
-   - Provides refined header/nav interactions
-   - Improves hero typography and spacing
-   - Polishes image treatment and skill tiles
-   - Adds subtle motion and accessibility-friendly focus states
-*/
-:root{
-  --bg-deep: #03071E;
-  --accent: #F48C06; /* existing brand accent */
-  --accent-2: #FFB86C;
-  --muted: #94a3b8; /* slate-400 like */
-  --glass: rgba(255,255,255,0.04);
-  --glass-strong: rgba(255,255,255,0.06);
+
+
+/* Mobile nav collapse: use max-height + opacity so transitions work (avoid display:none and height:auto) */
+#nav{
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 210ms var(--ease-in-out), opacity 200ms ease;
+  -webkit-transition: max-height 210ms var(--ease-in-out), opacity 200ms ease;
+  -moz-transition: max-height 210ms var(--ease-in-out), opacity 200ms ease;
+  -ms-transition: max-height 210ms var(--ease-in-out), opacity 200ms ease;
+  -o-transition: max-height 210ms var(--ease-in-out), opacity 200ms ease;
 }
-
-/* Page background subtle radial vignette */
-html, body{
-  background: radial-gradient(1200px 600px at 10% 10%, rgba(244,140,6,0.06), transparent 15%),
-              radial-gradient(900px 400px at 90% 90%, rgba(255,184,108,0.03), transparent 15%),
-              var(--bg-deep);
-  color: #E6EEF7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#nav.open{
+  /* large enough to fit menu content; keeps transition animatable */
+  max-height: 1200px;
+  opacity: 1;
 }
-
-/* Header tweaks */
-header{
-  background: linear-gradient(180deg, rgba(3,7,30,0.55), rgba(3,7,30,0.25));
-  border-bottom: 1px solid rgba(244,140,6,0.06);
-  backdrop-filter: blur(6px);
-}
-
-/* Brand/logo spacing */
-header .title-font{
-  padding: 0.4rem 0.9rem;
-  border-radius: 9999px;
-  transition: transform 180ms var(--ease-in-out), box-shadow 180ms var(--ease-in-out);
-}
-header .title-font:hover{ transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15,23,42,0.6); }
-
-/* Nav link underline animation */
-nav a{ position: relative; transition: color 160ms ease; }
-nav a p{ position: relative; z-index: 2; }
-nav a > div{ transition: width 220ms ease, opacity 160ms ease; left: 0.5rem; right: 0.5rem; }
-nav a:hover{ color: var(--accent); }
-nav a:hover > div{ width: calc(100% - 1rem); opacity: 1; }
-nav a .active-link, nav a.active{ color: var(--accent) !important; }
-nav a.active > div{ width: calc(100% - 1rem); opacity: 1; }
-
-/* Make the nav background less heavy on mobile */
-@media (max-width: 767px){
-  nav{ background: linear-gradient(180deg, rgba(3,7,30,0.75), rgba(3,7,30,0.85)); }
-}
-
-/* Buttons: subtle lift and focus ring */
-.btn{ transition: transform 180ms var(--ease-in-out), box-shadow 180ms var(--ease-in-out), background-color 160ms ease; }
-.btn:focus{ outline: 3px solid rgba(244,140,6,0.18); outline-offset: 3px; }
-.btn:hover{ transform: translateY(-3px); }
-
-/* Accent button variant (applies to Hire Me) */
-.btn--accent{ background: linear-gradient(90deg, var(--accent), var(--accent-2)); box-shadow: 0 8px 30px rgba(244,140,6,0.12); }
-
-/* Hero tweaks */
-#home .playball-regular{ text-shadow: 0 6px 24px rgba(244,140,6,0.08); letter-spacing: -0.5px; }
-#home p{ color: rgba(230,238,247,0.95); }
-#home .md\:text-7xl{ line-height: 0.95; }
-
-/* Image treatment */
-.img-round{ border-radius: 1.2rem; overflow: hidden; }
-.img{ border-radius: 1.2rem; filter: grayscale(12%); transition: transform 300ms var(--ease-in-out), filter 260ms ease, box-shadow 260ms ease; -webkit-transition: transform 300ms var(--ease-in-out), filter 260ms ease, box-shadow 260ms ease; -moz-transition: transform 300ms var(--ease-in-out), filter 260ms ease, box-shadow 260ms ease; -ms-transition: transform 300ms var(--ease-in-out), filter 260ms ease, box-shadow 260ms ease; -o-transition: transform 300ms var(--ease-in-out), filter 260ms ease, box-shadow 260ms ease;
-}
-.img:hover{ transform: translateY(-6px) scale(1.02); filter: grayscale(0%); }
-
-/* Improve portrait framing layers */
-.img-round[style] ~ .img-round, .img-round.border-2{ filter: none; }
-.img-round::after{ content: ''; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: overlay; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12)); }
-
-/* Skills: make tiles consistent and accessible */
-.skills-container img{ border-radius: 0.5rem; box-shadow: 0 8px 18px rgba(2,6,23,0.55); transition: transform 240ms var(--ease-in-out), filter 240ms ease; }
-.skills-container .rotate-45{ overflow: visible; }
-.skills-container .w-24, .skills-container .w-20{ background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius: 0.6rem; }
-.skills-container .w-24:hover img, .skills-container .w-20:hover img{ transform: scale(0.98) translateY(-6px); filter: none; }
-
-/* Projects grid container - subtle card style */
-#projects{ opacity: 1 !important; }
-.grid-projects .project-card{ border-radius: 0.8rem; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015)); box-shadow: 0 10px 30px rgba(2,6,23,0.6); transition: transform 220ms var(--ease-in-out), box-shadow 220ms var(--ease-in-out); border: 1px solid rgba(148,163,184,0.06); }
-.grid-projects .project-card:hover{ transform: translateY(-8px); box-shadow: 0 20px 60px rgba(2,6,23,0.7); }
-
-/* Contact panel */
-#contact .skills-container{ transform-origin: center; transition: transform 240ms var(--ease-in-out); }
-#contact .skills-container:hover{ transform: scale(0.78); }
-
-/* Accessibility: focusable anchors show underline */
-a:focus{ outline: 3px solid rgba(255,255,255,0.06); outline-offset: 3px; }
-
-/* Reduce animation motion for users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce){
-  *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+@media (min-width: 768px){
+  /* desktop: ensure nav is visible and uncollapsed */
+  #nav{ max-height: none !important; opacity: 1 !important; overflow: visible !important; }
 }
