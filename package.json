@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "tailwindcss": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch",
+    "tailwindcss": "npx @tailwindcss/cli -i ./css/input.css -o ./css/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tejas Nayak",
   "license": "ISC",
   "dependencies": {
-    "daisyui": "^4.12.10",
+    "daisyui": "^5.2.0",
     "express": "^4.19.2",
-    "portfolio": "file:"
+    "portfolio": "file:",
+    "tailwindcss": "^4.1.14"
   }
 }

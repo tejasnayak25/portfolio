@@ -3,11 +3,11 @@ let colors = [ "#2f4f4f", "#080808", "#3d0c02", "#3b3c36", "#52593b", "#704241",
 class Project {
     constructor(data) {
         let tag = document.createElement("div");
-        tag.className = "p-4 lg:w-1/3 md:w-1/2 w-full project relative z-10 md:opacity-100 opacity-50";
+        tag.className = "p-4 w-full project relative z-10 md:opacity-100 opacity-50";
 
         tag.innerHTML = `
             <div class="h-fit border-2 bg-[#03071E] border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                <div class="lg:h-48 md:h-36 h-36 w-full object-cover object-center flex justify-center items-center" style="background-image:linear-gradient(to right top, ${colors[Math.floor(Math.random()*10)]},${colors[Math.floor(Math.random()*10)]});">
+                <div class="w-full object-cover object-center flex justify-center items-center" style="background-image:linear-gradient(to right top, ${colors[Math.floor(Math.random()*10)]},${colors[Math.floor(Math.random()*10)]}); padding:2.5rem 1rem;">
                     <h1 class="title-font text-2xl text-center font-bold text-gray-200 drop-shadow-lg mb-3 uppercase">${data.name}</h1>
                 </div>
                 <div class="p-6">
@@ -74,7 +74,7 @@ if(page === "projects") {
         
             if(isMobile) {
                 let div = document.createElement("div");
-                div.className = " background w-full h-full absolute bg-[#03071E] top-0 left-0 bg-opacity-60 z-20 pointer-events-none";
+                div.className = " background w-full h-full absolute bg-[#03071E]/60 top-0 left-0 z-20 pointer-events-none";
                 //projects.append(div);
                 projects.addEventListener('scroll', () => {
                     const percentage = getScrollPercent();

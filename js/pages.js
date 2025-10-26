@@ -6,7 +6,7 @@ function hideCurrentPage() {
 
 function render(id) {
     let elem = document.getElementById(id);
-    elem.classList.replace("hidden", "flex");
+    elem.classList.replace("hidden", id === "projects" ? "grid" : "flex");
     elem.classList.add("active-page");
 }
 
@@ -19,7 +19,8 @@ let pages = {
 
             anime({
                 targets: "#hire-btn-arrow",
-                right: 0
+                right: 0,
+                scaleX: 1
             });
             anime({
                 targets: '#name .letter',
