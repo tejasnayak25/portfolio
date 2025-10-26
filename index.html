@@ -346,7 +346,7 @@
     </div>
     <header class="text-gray-700 body-font relative z-40">
       <div class="container mx-auto flex flex-wrap p-5 md:justify-normal justify-between items-center">
-        <a class="flex title-font font-medium items-center text-slate-100 py-2 bg-[#03071E]/50 backdrop-blur-sm">
+        <a href="./" class="flex title-font font-medium items-center text-slate-100 py-2 bg-[#03071E]/50 backdrop-blur-sm">
           <span class="ml-3 text-xl">Tejas Nayak</span>
         </a>
         <nav id="nav" class="transition-all md:ml-auto md:mr-auto z-[25] md:flex md:flex-row flex-col flex-wrap md:relative absolute md:top-0 top-[5.5rem] left-0 md:items-center items-start md:w-auto w-full md:text-base text-lg md:justify-center justify-start md:p-0 p-10 md:pt-0 pt-5 md:mt-0 -mt-2 md:gap-0 gap-5 bg-[#03071E]/50 backdrop-blur-sm border-[#F48C06] md:border-b-0 border-b-2">
@@ -381,9 +381,12 @@
             <button id="share-btn" class="btn btn-ghost btn-square rounded-md text-slate-100">
                 <i class=" material-symbols-rounded">share</i>
             </button>
-            <button id="mobile-menu-btn" class="btn btn-ghost btn-square rounded-md md:hidden block text-slate-100">
-                <i class=" material-symbols-rounded">menu</i>
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 btn btn-ghost rounded-md text-slate-100" aria-label="Open Menu" aria-expanded="false" type="button">
+                <span class="block h-0.5 w-6 rounded-full bg-slate-100 mb-0.5 transition-all duration-300 line1"></span>
+                <span class="block h-0.5 w-6 rounded-full bg-slate-100 mb-0.5 transition-all duration-300 line2"></span>
+                <span class="block h-0.5 w-6 rounded-full bg-slate-100 transition-all duration-300 line3"></span>
             </button>
+            
         </div>
       </div>
     </header>
