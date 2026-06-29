@@ -79,7 +79,7 @@ export default function AboutBody() {
                 </span>
                 <span className="flex flex-col items-start">
                   <span className="text-[12px] text-white leading-tight">DOWNLOAD RESUME</span>
-                  <span className="text-[9px] text-white/50 tracking-[0.15em] font-bold">PDF // 2 PAGES</span>
+                  <span className="text-[9px] text-white/50 tracking-[0.15em] font-bold">PDF</span>
                 </span>
                 <span className="ml-auto border-2 border-black px-2 py-1 bg-white text-[9px] font-black text-black group-hover:bg-black group-hover:text-white transition-colors">
                   ⬇
