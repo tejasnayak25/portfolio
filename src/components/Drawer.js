@@ -8,7 +8,8 @@ export default function Drawer({ isOpen, onClose, title, subtitle, children }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
   }, []);
 
   // Close drawer on escape keypress

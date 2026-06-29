@@ -100,7 +100,7 @@ export default function AboutBody() {
 
         <div className="bg-[#FFE05D] border-3 border-black p-8 md:p-10 shadow-[8px_8px_0px_#000] relative">
           {/* Corner quote mark */}
-          <span className="absolute -top-4 -left-2 text-6xl font-black text-black/40 select-none leading-none">"</span>
+          <span className="absolute -top-4 -left-2 text-6xl font-black text-black/40 select-none leading-none">&quot;</span>
 
           <p className="text-lg md:text-2xl font-black text-black leading-snug max-w-4xl font-sans">
             I build digital systems from the ground up —

@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import DigitalFactory from "@/components/DigitalFactory";
 
+const phrases = [
+  "I Am\nTejas\nNayak",
+  "I Build\nDigital\nSystems"
+];
+
 export default function Home() {
   const router = useRouter();
   const codingSince = 2021;
   const yearsExp = new Date().getFullYear() - codingSince;
-  const phrases = [
-    "I Am\nTejas\nNayak",
-    "I Build\nDigital\nSystems"
-  ];
   const [currentPhraseIdx, setCurrentPhraseIdx] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -35,8 +36,10 @@ export default function Home() {
         setIsDeleting(true);
       }, 2500);
     } else if (isDeleting && displayText === "") {
-      setIsDeleting(false);
-      setCurrentPhraseIdx((prev) => (prev + 1) % phrases.length);
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+        setCurrentPhraseIdx((prev) => (prev + 1) % phrases.length);
+      }, 0);
     }
  
     return () => clearTimeout(timer);
@@ -89,7 +92,7 @@ export default function Home() {
               onClick={() => router.push("/contact")}
               className="px-8 py-4 bg-white text-black border-3 border-black text-sm font-black font-mono tracking-wider uppercase cursor-pointer shadow-[5px_5px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[7px_7px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all duration-100"
             >
-              LET'S CONNECT
+              LET&apos;S CONNECT
             </button>
           </div>
 
@@ -136,7 +139,7 @@ export default function Home() {
                 </button>
               </div>
               <div className="lg:col-span-3 bg-white border-3 border-black p-6 shadow-[8px_8px_0px_#000] relative z-10">
-                <span className="text-[10px] font-mono font-black text-black/40 uppercase tracking-widest select-none">// SNAPSHOT</span>
+                <span className="text-[10px] font-mono font-black text-black/40 uppercase tracking-widest select-none">{"// SNAPSHOT"}</span>
                 <p className="text-sm md:text-base text-black font-bold leading-relaxed mt-3 mb-5">
                   Full-stack developer with professional experience at Giddly and WAKUWAKU Studio. Computer Science student at SMVITM, building production web apps, AI tools, and interactive interfaces.
                 </p>
@@ -166,7 +169,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
               <div className="lg:col-span-3 lg:order-2 bg-white border-3 border-black p-6 shadow-[8px_8px_0px_#000] relative z-10">
-                <span className="text-[10px] font-mono font-black text-black/40 uppercase tracking-widest select-none">// TECH STACKS</span>
+                <span className="text-[10px] font-mono font-black text-black/40 uppercase tracking-widest select-none">{"// TECH STACKS"}</span>
                 <p className="text-sm md:text-base text-black font-bold leading-relaxed mt-3 mb-5">
                   Frontend, backend, systems programming, and AI — spanning React/Next.js through C/C++, Go, and Python. Each tool chosen for the problem, not the hype.
                 </p>
@@ -280,7 +283,7 @@ export default function Home() {
                   <p className="text-white font-extrabold text-base">&gt; tejas@portfolio ~ $ whoami</p>
                   <p className="text-[#39FF14] font-bold">&gt; FULL-STACK DEVELOPER // CS STUDENT</p>
                   <p className="text-[#00E5FF] font-bold">&gt; STACK: REACT / NEXT.JS / C++ / PYTHON / GO</p>
-                  <p className="text-[#FF5722] font-bold">&gt; TYPE 'help' TO EXPLORE →</p>
+                  <p className="text-[#FF5722] font-bold">&gt; TYPE &apos;help&apos; TO EXPLORE →</p>
                 </div>
               </div>
               <div className="lg:col-span-4 bg-white border-3 border-black p-6 shadow-[8px_8px_0px_#000] relative z-10 self-start rotate-[0.5deg]">
@@ -309,12 +312,12 @@ export default function Home() {
             <div className="bg-[var(--color-accent)] border-3 border-black p-8 md:p-10 shadow-[8px_8px_0px_#000] relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="text-white">
-                  <span className="text-[9px] font-mono font-black text-white/60 uppercase tracking-widest">// GET IN TOUCH</span>
+                  <span className="text-[9px] font-mono font-black text-white/60 uppercase tracking-widest">{"// GET IN TOUCH"}</span>
                   <h2 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight font-mono leading-[0.9] mt-3 mb-4">
-                    LET'S<br />CONNECT
+                    LET&apos;S<br />CONNECT
                   </h2>
                   <p className="text-sm md:text-base text-white font-bold leading-relaxed max-w-md">
-                    Open to full-time roles, freelance projects, and collaborations. Email works best — I'll respond within 24 hours.
+                    Open to full-time roles, freelance projects, and collaborations. Email works best — I&apos;ll respond within 24 hours.
                   </p>
                 </div>
                 <div className="flex flex-col items-start lg:items-end gap-4">

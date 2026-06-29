@@ -41,7 +41,12 @@ export default function Header() {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme-accent");
-    if (saved) setActiveAccent(saved);
+    if (saved) {
+      const timer = setTimeout(() => {
+        setActiveAccent(saved);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   useEffect(() => {
@@ -194,7 +199,7 @@ export default function Header() {
         className="flex items-center gap-3 bg-white border-3 border-black py-2 pl-4 pr-2.5 shadow-[4px_4px_0px_#000] hover:shadow-[6px_6px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 active:translate-x-[2px] active:translate-y-[2px] active:shadow-[1px_1px_0px_#000] transition-all cursor-pointer font-sans"
       >
         <span className="text-[13px] font-extrabold uppercase tracking-[0.1em] text-black">
-          Let's Connect
+          Let&apos;s Connect
         </span>
         <span className="w-7 h-7 bg-[var(--color-accent)] border border-black flex justify-center items-center text-white transition-transform">
           <svg className="w-4 h-4 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24">
@@ -262,7 +267,7 @@ export default function Header() {
             <svg className="w-5 h-5 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            LET'S CONNECT
+            LET&apos;S CONNECT
           </Link>
         </div>
 

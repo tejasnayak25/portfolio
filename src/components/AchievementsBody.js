@@ -254,10 +254,11 @@ export default function AchievementsBody() {
             </div>
             <div className="mt-5">
               <div className="flex items-center gap-2 mb-3 select-none">
-                <span className="text-[9px] font-mono font-black text-black/30 tracking-[0.2em] uppercase">// CERTIFICATE</span>
+                <span className="text-[9px] font-mono font-black text-black/30 tracking-[0.2em] uppercase">{"// CERTIFICATE"}</span>
                 <span className="h-px flex-1 bg-black/20" />
               </div>
               <div className="border-3 border-black overflow-hidden bg-white shadow-[6px_6px_0px_#000]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={`/images/certificates/${selectedComp.id}.jpg`}
                   alt={`${selectedComp.label} certificate`}

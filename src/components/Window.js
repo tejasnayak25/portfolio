@@ -30,6 +30,7 @@ export default function Window({
     if (isOpen && !isMinimized) {
       setActiveWindow(id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, isMinimized]);
 
   // Center window on screen if defaultPos is not custom
@@ -37,11 +38,13 @@ export default function Window({
     if (typeof window !== "undefined") {
       const x = Math.max(20, (window.innerWidth - size.width) / 2 + (id === "terminal" ? 20 : id === "about" ? -20 : 0));
       const y = Math.max(80, (window.innerHeight - size.height) / 2.5 + (id === "terminal" ? 15 : id === "about" ? -15 : 0));
-      setPos({ x, y });
+      const timer = setTimeout(() => {
+        setPos({ x, y });
+      }, 0);
+      return () => clearTimeout(timer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  if (!isOpen || isMinimized) return null;
 
   // DRAG HANDLERS
   const startDrag = (e) => {
@@ -129,6 +132,7 @@ export default function Window({
       document.removeEventListener("touchmove", onResize);
       document.removeEventListener("touchend", stopResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDragging, isResizing]);
 
   const toggleMaximize = () => {
@@ -157,6 +161,8 @@ export default function Window({
         width: `${size.width}px`,
         height: `${size.height}px`
       };
+
+  if (!isOpen || isMinimized) return null;
 
   return (
     <div

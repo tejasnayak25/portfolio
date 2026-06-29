@@ -10,53 +10,7 @@ export default function ProjectsBody() {
   const [activeCat, setActiveCat] = useState("all");
   const [selectedRepo, setSelectedRepo] = useState(null);
 
-  useEffect(() => {
-    const fetchRepos = async () => {
-      try {
-        const cached = sessionStorage.getItem("github-repos");
-        if (cached) {
-          const data = JSON.parse(cached);
-          setRepos(data);
-          filterAndSet(data, activeCat);
-          setLoading(false);
-          return;
-        }
-
-        const res = await fetch("https://api.github.com/users/tejasnayak25/repos?per_page=100");
-        if (!res.ok) throw new Error("API limits");
-        const data = await res.json();
-
-        const projectRepos = data.filter((repo) =>
-          repo.topics && repo.topics.includes("project")
-        );
-
-        sessionStorage.setItem("github-repos", JSON.stringify(projectRepos));
-        setRepos(projectRepos);
-        filterAndSet(projectRepos, activeCat);
-        setLoading(false);
-      } catch (err) {
-        console.error(err);
-        setError(true);
-        setLoading(false);
-      }
-    };
-
-    fetchRepos();
-  }, []);
-
-  useEffect(() => {
-    filterAndSet(repos, activeCat);
-  }, [activeCat, repos]);
-
-  useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === "Escape") setSelectedRepo(null);
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, []);
-
-  const filterAndSet = (allRepos, filter) => {
+  function filterAndSet(allRepos, filter) {
     if (filter === "all") {
       setFilteredRepos(allRepos);
       return;
@@ -91,7 +45,54 @@ export default function ProjectsBody() {
     });
 
     setFilteredRepos(filtered);
-  };
+  }
+
+  useEffect(() => {
+    const fetchRepos = async () => {
+      try {
+        const cached = sessionStorage.getItem("github-repos");
+        if (cached) {
+          const data = JSON.parse(cached);
+          setRepos(data);
+          setLoading(false);
+          return;
+        }
+
+        const res = await fetch("https://api.github.com/users/tejasnayak25/repos?per_page=100");
+        if (!res.ok) throw new Error("API limits");
+        const data = await res.json();
+
+        const projectRepos = data.filter((repo) =>
+          repo.topics && repo.topics.includes("project")
+        );
+
+        sessionStorage.setItem("github-repos", JSON.stringify(projectRepos));
+        setRepos(projectRepos);
+        setLoading(false);
+      } catch (err) {
+        console.error(err);
+        setError(true);
+        setLoading(false);
+      }
+    };
+
+    fetchRepos();
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      filterAndSet(repos, activeCat);
+    }, 0);
+    return () => clearTimeout(timer);
+  }, [activeCat, repos]);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") setSelectedRepo(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
 
   const getCardType = (index) => {
     const mod = index % 4;
@@ -158,7 +159,7 @@ export default function ProjectsBody() {
           <div className="border-3 border-black p-8 bg-white shadow-[6px_6px_0px_#000] flex flex-col items-center select-none text-black font-bold text-center">
             <i className="material-symbols-rounded text-3xl mb-3">folder_open</i>
             <h4 className="text-sm font-black font-mono uppercase tracking-wider">Empty Directory</h4>
-            <p className="text-xs mt-1 font-mono">// No items match this system filters.</p>
+            <p className="text-xs mt-1 font-mono">{"// No items match this system filters."}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-scale select-text">

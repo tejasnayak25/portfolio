@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import "../../public/css/line.css";
+@import "../../public/css/material-symbols.css";
 
 :root {
   --background: #FFFDF4;

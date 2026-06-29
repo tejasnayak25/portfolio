@@ -191,7 +191,7 @@ export default function Terminal() {
         <span className="w-3 h-3 rounded-full border border-black bg-red-500" />
         <span className="w-3 h-3 rounded-full border border-black bg-yellow-500" />
         <span className="w-3 h-3 rounded-full border border-black bg-green-500" />
-        <span className="text-slate-400 text-[10px] pl-2 font-black">// visitor@tejas-ai: ~</span>
+        <span className="text-slate-400 text-[10px] pl-2 font-black">{"// visitor@tejas-ai: ~"}</span>
       </div>
 
       {/* Terminal History */}

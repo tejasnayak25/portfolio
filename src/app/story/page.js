@@ -168,7 +168,7 @@ export default function StoryPage() {
                     CHAPTER_{String(ch.id).padStart(2, '0')}
                   </span>
                   <span className="text-[12px] font-mono font-black text-black/30">
-                    // {ch.year}
+                    {"//"} {ch.year}
                   </span>
                   {isActive && (
                     <span className="ml-auto text-[10px] font-mono font-black text-[#FF5722] uppercase tracking-wider">

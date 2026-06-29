@@ -115,10 +115,6 @@ export default function RootLayout({ children }) {
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: accentScript }} />
-        {/* Local Unicons stylesheet */}
-        <link rel="stylesheet" href="/css/line.css" />
-        {/* Local Material Symbols rounded stylesheet */}
-        <link rel="stylesheet" href="/css/material-symbols.css" />
         <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
         {/* Structured Data Schema */}
         <script
