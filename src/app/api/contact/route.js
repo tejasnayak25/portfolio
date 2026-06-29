@@ -67,7 +67,7 @@ export async function POST(request) {
 
       subject: `📨 Portfolio Contact • ${name}`,
 
-      reply_to: email,
+      replyTo: email,
 
       text: `
 New Portfolio Contact
