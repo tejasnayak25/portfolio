@@ -129,7 +129,7 @@ export default function StoryPage() {
       {/* ═══ HEADER ═══ */}
       <div className="mb-8 select-none flex flex-col items-start gap-1.5 border-b-2 border-black pb-6">
         <span className="bg-[#FF5722] text-white px-2.5 py-0.5 text-[10px] font-mono font-black uppercase tracking-widest border border-black shadow-[2px_2px_0px_#000] rotate-[1.5deg]">
-          Engineering Chronicles // MODULE_05
+          Engineering Chronicles // MODULE_04
         </span>
         <h1 className="text-5xl md:text-6xl font-black tracking-tight text-black uppercase comic-title-shadow mt-1">
           DEV STORY

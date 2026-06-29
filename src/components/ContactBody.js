@@ -1,6 +1,41 @@
 "use client";
 
+import { useState } from "react";
+
 export default function ContactBody() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSending, setIsSending] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      window.dispatchEvent(new CustomEvent("toast", { detail: "ERROR: ALL FIELDS ARE REQUIRED" }));
+      return;
+    }
+
+    setIsSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        window.dispatchEvent(new CustomEvent("toast", { detail: "TRANSMISSION SUCCESSFUL // INBOX RECEIVED" }));
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        window.dispatchEvent(new CustomEvent("toast", { detail: `ERROR: ${data.error || "TRANSMISSION FAILED"}` }));
+      }
+    } catch (err) {
+      console.error(err);
+      window.dispatchEvent(new CustomEvent("toast", { detail: "ERROR: SYSTEM OFFLINE // TRY AGAIN LATER" }));
+    } finally {
+      setIsSending(false);
+    }
+  };
+
   const copyEmail = () => {
     navigator.clipboard.writeText("tejasnayak25@outlook.com");
     window.dispatchEvent(new CustomEvent("toast", { detail: "EMAIL COPIED TO SYSTEM CLIPBOARD" }));
@@ -82,7 +117,7 @@ export default function ContactBody() {
       {/* ═══ PROFILE CARD ═══ */}
       <div className="bg-white border-3 border-black shadow-[8px_8px_0px_#000] p-6 md:p-8 select-none">
         <div className="flex items-center gap-2 mb-4">
-          <span className="bg-[#6E4BFF] text-white px-2 py-0.5 text-[10px] font-mono font-black uppercase tracking-wider border border-black shadow-[2px_2px_0px_#000]">
+          <span className="bg-[var(--color-accent)] text-white px-2 py-0.5 text-[10px] font-mono font-black uppercase tracking-wider border border-black shadow-[2px_2px_0px_#000]">
             PROFILE // ACTIVE
           </span>
           <span className="w-2 h-2 rounded-full bg-[#39FF14] border border-black animate-pulse" />
@@ -113,6 +148,92 @@ export default function ContactBody() {
           </div>
       </div>
 
+      {/* ═══ CONTACT FORM ═══ */}
+      <div>
+        <div className="flex items-center gap-3 mb-3 select-none">
+          <span className="text-[10px] font-mono font-black text-black/20 tracking-[0.2em] uppercase">[ TRANSMIT MESSAGE ]</span>
+          <span className="h-px flex-1 bg-black/20" />
+          <span className="text-[9px] font-mono font-black text-black/20 border border-black/20 px-1.5 py-0.5">REQUIRED</span>
+        </div>
+
+        <form onSubmit={handleSubmit} className="bg-white border-3 border-black shadow-[8px_8px_0px_#000] p-6 md:p-8 flex flex-col gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[10px] font-mono font-black text-black/60 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 bg-[var(--color-accent)] border border-black" />
+                VISITOR NAME
+                <span className="text-[var(--color-accent)]">*</span>
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. John Doe"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                disabled={isSending}
+                className="w-full bg-white border-2 border-black p-3.5 font-mono text-[12px] font-black text-black outline-none placeholder:text-black/20 focus:bg-[#FFE05D] focus:shadow-[3px_3px_0px_#000] focus:-translate-x-0.5 focus:-translate-y-0.5 transition-all"
+                required
+              />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-[10px] font-mono font-black text-black/60 uppercase tracking-wider flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 bg-[var(--color-accent)] border border-black" />
+                REPLY EMAIL
+                <span className="text-[var(--color-accent)]">*</span>
+              </label>
+              <input
+                type="email"
+                placeholder="e.g. john@example.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                disabled={isSending}
+                className="w-full bg-white border-2 border-black p-3.5 font-mono text-[12px] font-black text-black outline-none placeholder:text-black/20 focus:bg-[#FFE05D] focus:shadow-[3px_3px_0px_#000] focus:-translate-x-0.5 focus:-translate-y-0.5 transition-all"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-1.5">
+            <label className="text-[10px] font-mono font-black text-black/60 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 bg-[var(--color-accent)] border border-black" />
+              MESSAGE
+              <span className="text-[var(--color-accent)]">*</span>
+            </label>
+            <textarea
+              placeholder="Type your message here..."
+              rows={5}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              disabled={isSending}
+              className="w-full bg-white border-2 border-black p-3.5 font-mono text-[12px] font-black text-black outline-none placeholder:text-black/20 focus:bg-[#FFE05D] focus:shadow-[3px_3px_0px_#000] focus:-translate-x-0.5 focus:-translate-y-0.5 transition-all resize-y"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSending}
+            className="w-full px-6 py-4 bg-[var(--color-accent)] text-white border-3 border-black font-mono text-[11px] font-black tracking-widest uppercase shadow-[5px_5px_0px_#000] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#000] transition-all cursor-pointer inline-flex items-center justify-center gap-2 disabled:bg-black/20 disabled:text-black/40 disabled:cursor-not-allowed disabled:shadow-[2px_2px_0px_#000] disabled:translate-x-0.5 disabled:translate-y-0.5"
+          >
+            {isSending ? (
+              <>
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                TRANSMITTING...
+              </>
+            ) : (
+              <>
+                <svg className="w-4.5 h-4.5 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                </svg>
+                SEND MESSAGE
+              </>
+            )}
+          </button>
+        </form>
+      </div>
+
       {/* ═══ CONTACT CHANNELS ═══ */}
       <div>
         <div className="flex items-center gap-3 mb-3 select-none">
@@ -129,15 +250,15 @@ export default function ContactBody() {
               rel="noopener noreferrer"
               className="bg-white border-3 border-black shadow-[6px_6px_0px_#000] p-4 md:p-5 flex items-center gap-4 group hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0px_#000] transition-all duration-200 select-none"
             >
-              <span className="w-11 h-11 border-2 border-black bg-[#FFE05D] flex items-center justify-center text-black shadow-[2px_2px_0px_#000] shrink-0 group-hover:bg-[#6E4BFF] group-hover:text-white transition-all duration-200">
+              <span className="w-11 h-11 border-2 border-black bg-[#FFE05D] flex items-center justify-center text-black shadow-[2px_2px_0px_#000] shrink-0 group-hover:bg-[var(--color-accent)] group-hover:text-white transition-all duration-200">
                 {soc.svg}
               </span>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2">
-                  <h4 className="text-[13px] font-black text-black uppercase font-mono tracking-wider group-hover:text-[#6E4BFF] transition-colors">
+                  <h4 className="text-[13px] font-black text-black uppercase font-mono tracking-wider group-hover:text-[var(--color-accent)] transition-colors">
                     {soc.name}
                   </h4>
-                  <span className="text-[9px] font-mono font-black text-[#6E4BFF] uppercase tracking-wider shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-[9px] font-mono font-black text-[var(--color-accent)] uppercase tracking-wider shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
                     {soc.action} →
                   </span>
                 </div>
@@ -162,7 +283,7 @@ export default function ContactBody() {
           className="w-full bg-white border-3 border-black shadow-[6px_6px_0px_#000] p-4 md:p-5 flex items-center justify-between gap-3 cursor-pointer group hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0px_#000] transition-all duration-200 select-none"
         >
           <div className="flex items-center gap-3 min-w-0">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6E4BFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="M2 4l10 8 10-8" />
             </svg>
@@ -170,7 +291,7 @@ export default function ContactBody() {
               tejasnayak25@outlook.com
             </span>
           </div>
-          <span className="text-[10px] font-mono font-black text-[#6E4BFF] uppercase tracking-wider shrink-0 flex items-center gap-1.5">
+          <span className="text-[10px] font-mono font-black text-[var(--color-accent)] uppercase tracking-wider shrink-0 flex items-center gap-1.5">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
               <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />

@@ -63,6 +63,29 @@ export default function AboutBody() {
                 </div>
               ))}
             </div>
+
+            {/* Resume download button */}
+            <div className="mt-6 flex justify-start select-none">
+              <a
+                href="/data/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-full px-5 py-4 bg-[var(--color-accent)] border-3 border-black font-mono font-black uppercase tracking-widest shadow-[6px_6px_0px_#000] hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[10px_10px_0px_#000] active:translate-x-0.5 active:translate-y-0.5 active:shadow-[2px_2px_0px_#000] transition-all duration-150 cursor-pointer inline-flex items-center gap-3"
+              >
+                <span className="w-10 h-10 border-2 border-black bg-white flex items-center justify-center shrink-0 text-black group-hover:bg-black group-hover:text-white transition-colors">
+                  <svg className="w-5 h-5 fill-none stroke-current stroke-[2.5]" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                </span>
+                <span className="flex flex-col items-start">
+                  <span className="text-[12px] text-white leading-tight">DOWNLOAD RESUME</span>
+                  <span className="text-[9px] text-white/50 tracking-[0.15em] font-bold">PDF // 2 PAGES</span>
+                </span>
+                <span className="ml-auto border-2 border-black px-2 py-1 bg-white text-[9px] font-black text-black group-hover:bg-black group-hover:text-white transition-colors">
+                  ⬇
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

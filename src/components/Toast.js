@@ -23,7 +23,7 @@ export default function Toast() {
   }, []);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-2 max-w-sm pointer-events-none">
+    <div className="fixed top-20 md:top-8 right-4 md:right-8 z-[110] flex flex-col gap-2 w-[calc(100vw-32px)] md:w-auto md:max-w-sm pointer-events-none">
       {messages.map((msg) => (
         <div
           key={msg.id}

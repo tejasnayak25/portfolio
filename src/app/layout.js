@@ -191,7 +191,6 @@ export default function RootLayout({ children }) {
                 </div>
               </div>
 
-              {/* Col 3: Connect */}
               <div>
                 <span className="text-[11px] font-mono font-black text-black/40 tracking-widest">[SOCIAL]</span>
                 <div className="mt-3 flex flex-col gap-2">
@@ -200,6 +199,7 @@ export default function RootLayout({ children }) {
                     { label: "LinkedIn", href: "https://www.linkedin.com/in/tejas-nayak-3110a7220/" },
                     { label: "Email", href: "mailto:tejasnayak25@outlook.com" },
                     { label: "Instagram", href: "https://instagram.com/tjnayak" },
+                    { label: "Resume", href: "/data/resume.pdf" },
                   ].map((link) => (
                     <a
                       key={link.label}
