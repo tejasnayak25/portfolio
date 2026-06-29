@@ -81,60 +81,42 @@ ${message}
       `,
 
       html: `
-<div style="font-family:Inter,Segoe UI,Arial,sans-serif;background:#FFFDF4;padding:32px;color:#121212;">
+<div style="font-family:Inter,'Segoe UI',Arial,sans-serif;background:#FFFDF4;padding:16px;color:#121212;">
 
-  <div style="max-width:640px;margin:auto;border:3px solid #121212;background:#FFFDF4;">
+  <div style="max-width:600px;margin:0 auto;border:3px solid #121212;background:#FFFDF4;">
 
-    <div style="padding:24px;border-bottom:3px solid #121212;">
-      <div style="font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#6E4BFF;">
-        TEJAS NAYAK
+    <div style="padding:16px 20px;border-bottom:3px solid #121212;text-align:left;">
+      <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#6E4BFF;">
+        TEJAS NAYAK &bull; PORTFOLIO
       </div>
-
-      <h1 style="margin:10px 0 0;font-size:28px;font-weight:900;">
-        NEW PORTFOLIO MESSAGE
+      <h1 style="margin:8px 0 0;font-size:22px;font-weight:900;text-transform:uppercase;">
+        New Message Received
       </h1>
     </div>
 
-    <div style="padding:24px;">
+    <div style="padding:20px;">
 
-      <p style="margin:0 0 14px;">
-        <strong>Name</strong><br>
-        ${safeName}
-      </p>
+      <div style="margin-bottom:16px;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6E4BFF;margin-bottom:2px;">Sender</div>
+        <div style="font-size:15px;font-weight:700;">${safeName}</div>
+      </div>
 
-      <p style="margin:0 0 14px;">
-        <strong>Email</strong><br>
-        ${safeEmail}
-      </p>
+      <div style="margin-bottom:16px;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6E4BFF;margin-bottom:2px;">Reply To</div>
+        <div style="font-size:15px;font-weight:700;word-break:break-all;">${safeEmail}</div>
+      </div>
 
-      <p style="margin:0 0 8px;">
-        <strong>Message</strong>
-      </p>
-
-      <div
-        style="
-          border-left:6px solid #6E4BFF;
-          padding:18px;
-          background:#F8F6EF;
-          line-height:1.7;
-          white-space:pre-wrap;
-        "
-      >
-        ${safeMessage}
+      <div style="margin-bottom:16px;">
+        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6E4BFF;margin-bottom:6px;">Message</div>
+        <div style="border-left:5px solid #6E4BFF;padding:14px 16px;background:#F8F6EF;line-height:1.6;font-size:14px;word-wrap:break-word;">
+          ${safeMessage}
+        </div>
       </div>
 
     </div>
 
-    <div
-      style="
-        border-top:3px solid #121212;
-        padding:18px 24px;
-        font-size:12px;
-        color:#666;
-      "
-    >
-      Generated automatically from
-      <strong>tejasnayak.me</strong>
+    <div style="border-top:3px solid #121212;padding:14px 20px;font-size:11px;color:#888;text-align:left;">
+      Generated automatically from <strong style="color:#121212;">tejasnayak.me</strong>
     </div>
 
   </div>
