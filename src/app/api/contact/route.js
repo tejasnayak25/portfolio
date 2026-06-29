@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function escapeHtml(str = "") {
   return str
     .replace(/&/g, "&amp;")
@@ -60,6 +58,7 @@ export async function POST(request) {
     const safeEmail = escapeHtml(email);
     const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
       from: "Tejas Portfolio <contact@tejasnayak.me>",
 
@@ -81,46 +80,56 @@ ${message}
       `,
 
       html: `
-<div style="font-family:Inter,'Segoe UI',Arial,sans-serif;background:#FFFDF4;padding:16px;color:#121212;">
-
-  <div style="max-width:600px;margin:0 auto;border:3px solid #121212;background:#FFFDF4;">
-
-    <div style="padding:16px 20px;border-bottom:3px solid #121212;text-align:left;">
-      <div style="font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#6E4BFF;">
-        TEJAS NAYAK &bull; PORTFOLIO
+<div style="background-color: #f3f4f6; padding: 24px 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; color: #000000; min-height: 100%;">
+  <div style="max-width: 580px; margin: 0 auto; background-color: #ffffff; border: 4px solid #000000; box-shadow: 6px 6px 0px #000000;">
+    <!-- Title banner (Tactile yellow card header) -->
+    <div style="background-color: #FFE05D; padding: 18px 20px; border-bottom: 4px solid #000000;">
+      <div style="font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: #000000; margin-bottom: 4px;">
+        TN // TRANSMISSION RECEIPT
       </div>
-      <h1 style="margin:8px 0 0;font-size:22px;font-weight:900;text-transform:uppercase;">
-        New Message Received
+      <h1 style="margin: 0; font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.5px; font-family: system-ui, -apple-system, sans-serif; line-height: 1.1;">
+        PORTFOLIO CONTACT
       </h1>
     </div>
 
-    <div style="padding:20px;">
-
-      <div style="margin-bottom:16px;">
-        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6E4BFF;margin-bottom:2px;">Sender</div>
-        <div style="font-size:15px;font-weight:700;">${safeName}</div>
-      </div>
-
-      <div style="margin-bottom:16px;">
-        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6E4BFF;margin-bottom:2px;">Reply To</div>
-        <div style="font-size:15px;font-weight:700;word-break:break-all;">${safeEmail}</div>
-      </div>
-
-      <div style="margin-bottom:16px;">
-        <div style="font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#6E4BFF;margin-bottom:6px;">Message</div>
-        <div style="border-left:5px solid #6E4BFF;padding:14px 16px;background:#F8F6EF;line-height:1.6;font-size:14px;word-wrap:break-word;">
-          ${safeMessage}
+    <!-- Data Payload Fields -->
+    <div style="padding: 24px 20px; font-family: system-ui, -apple-system, sans-serif; text-align: left;">
+      <!-- Row 1: Sender Name -->
+      <div style="margin-bottom: 20px;">
+        <div style="font-family: ui-monospace, monospace; font-size: 10px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; color: #555555; margin-bottom: 6px;">
+          [01 // SENDER NAME]
+        </div>
+        <div style="font-size: 15px; font-weight: 800; background-color: #f9fafb; border: 2px solid #000000; padding: 10px 14px; box-shadow: 2px 2px 0px #000000; color: #000000;">
+          ${safeName}
         </div>
       </div>
 
+      <!-- Row 2: Reply Email -->
+      <div style="margin-bottom: 20px;">
+        <div style="font-family: ui-monospace, monospace; font-size: 10px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; color: #555555; margin-bottom: 6px;">
+          [02 // REPLY EMAIL]
+        </div>
+        <div style="font-size: 15px; font-weight: 800; background-color: #f9fafb; border: 2px solid #000000; padding: 10px 14px; box-shadow: 2px 2px 0px #000000; word-break: break-all;">
+          <a href="mailto:${safeEmail}" style="color: #6E4BFF; text-decoration: underline;">${safeEmail}</a>
+        </div>
+      </div>
+
+      <!-- Row 3: Message Content -->
+      <div style="margin-bottom: 10px;">
+        <div style="font-family: ui-monospace, monospace; font-size: 10px; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; color: #555555; margin-bottom: 6px;">
+          [03 // MESSAGE PAYLOAD]
+        </div>
+        <div style="font-size: 14px; line-height: 1.6; font-weight: 500; background-color: #f9fafb; border: 2px solid #000000; padding: 16px; box-shadow: 3px 3px 0px #000000; word-wrap: break-word; color: #111827;">
+          ${safeMessage}
+        </div>
+      </div>
     </div>
 
-    <div style="border-top:3px solid #121212;padding:14px 20px;font-size:11px;color:#888;text-align:left;">
-      Generated automatically from <strong style="color:#121212;">tejasnayak.me</strong>
+    <!-- Footer Status bar -->
+    <div style="border-top: 4px solid #000000; padding: 12px 20px; background-color: #f9fafb; font-family: ui-monospace, monospace; font-size: 10px; font-weight: 900; color: #666666; text-align: left; text-transform: uppercase; letter-spacing: 1px;">
+      STATUS: RECEIVED // SOURCE: <span style="color: #000000; font-weight: 900;">TEJASNAYAK.ME</span>
     </div>
-
   </div>
-
 </div>
       `,
     });
