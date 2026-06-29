@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polygon points="12 2 17 5 17 11 12 8" />
+  <path d="M12 2L7 5v6l5-3" />
+  <line x1="12" y1="8" x2="17" y2="5" />
+  <line x1="12" y1="8" x2="12" y2="14" />
+  <path d="M7 11l5 3v6l-5-3v-6z" />
+  <line x1="7" y1="17" x2="12" y2="14" />
+  <path d="M17 11l-5 3v6l5-3v-6z" />
+  <line x1="17" y1="17" x2="12" y2="14" />
+</svg>

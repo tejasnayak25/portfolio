@@ -1,0 +1,193 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+  --background: #FFFDF4;
+  --foreground: #121212;
+  
+  --panel-bg: #FFFFFF;
+  --panel-border: #000000;
+  --panel-divider: #000000;
+  --panel-darker: #FAF5E8;
+  
+  /* Accent colors (vibrant neo-brutalist customizer) */
+  --color-accent: #6E4BFF;
+  --color-accent-hover: #593AD6;
+  --color-accent-glow: rgba(110, 75, 255, 0.2);
+  --color-accent-secondary: #A78BFA;
+  
+  /* Hard offset black dropshadows — bigger for more impact */
+  --industrial-shadow: 7px 7px 0px 0px #000000;
+  --industrial-shadow-hover: 10px 10px 0px 0px #000000;
+}
+
+@theme {
+  --color-accent: var(--color-accent);
+  --color-accent-hover: var(--color-accent-hover);
+  --color-accent-secondary: var(--color-accent-secondary);
+  --color-accent-glow: var(--color-accent-glow);
+}
+
+html, body {
+  min-height: 100%;
+  width: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-outfit), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+}
+
+/* Stronger vintage halftone print texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Scrollbar inside scroll panels */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--panel-darker);
+  border: 2px solid #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Hardware Tile - Neo-brutalist Card */
+.hardware-tile {
+  background: var(--panel-bg);
+  border: 3px solid #000000;
+  border-radius: 0px;
+  box-shadow: 6px 6px 0px 0px #000000;
+  transition: transform 0.15s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.hardware-tile:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px 0px #000000;
+}
+
+.hardware-tile:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0px 0px #000000;
+}
+
+/* Button - Neo-brutalist Button */
+.industrial-btn {
+  background: var(--panel-bg);
+  border: 3px solid #000000;
+  border-radius: 0px;
+  box-shadow: 4px 4px 0px 0px #000000;
+  font-family: var(--font-mono), monospace;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  transition: transform 0.15s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.15s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.industrial-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px #000000;
+  border-color: #000000;
+}
+
+.industrial-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px 0px #000000;
+}
+
+/* Typography styles */
+.font-sans {
+  font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Editorial Labels */
+.tech-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #000000;
+  font-weight: 800;
+}
+
+/* LEDs updated to comic circles with black stroke rings */
+.led-green {
+  border: 1.5px solid #000000;
+}
+
+.led-violet {
+  border: 1.5px solid #000000;
+}
+
+/* Comic print halftone dot grid pattern */
+.blueprint-dots {
+  background-size: 18px 18px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1.5px, transparent 1.8px);
+}
+
+/* Comic bubble style helper */
+.speech-bubble {
+  position: relative;
+  background: #FFFFFF;
+  border: 3.5px solid #000000;
+  box-shadow: 6px 6px 0px 0px #000000;
+  border-radius: 0px;
+}
+
+/* Sticker Label tag */
+.sticker-label {
+  display: inline-block;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px 0px #000000;
+  background: var(--color-accent);
+  color: #FFFFFF;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: var(--font-mono), monospace;
+}
+
+/* Comic title outline shadow effect — bigger for more impact */
+.comic-title-shadow {
+  color: #FFFFFF;
+  -webkit-text-stroke: 2px #000000;
+  text-shadow: 5px 5px 0px #000000;
+}
+
+/* Home screen title — way more impactful */
+.home-title-glow {
+  color: #121212;
+  text-shadow: 5px 5px 0px var(--color-accent), 10px 10px 0px rgba(0,0,0,0.15);
+  -webkit-text-stroke: 1.5px #000000;
+}
+
+/* Warnings stripes helper */
+.warning-stripes {
+  background-size: 15px 15px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #FFE05D,
+    #FFE05D 8px,
+    #000000 8px,
+    #000000 16px
+  );
+}

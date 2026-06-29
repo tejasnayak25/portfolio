@@ -1,19 +1,29 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "temp-next",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "nodemon index.js",
-    "tailwindcss": "npx @tailwindcss/cli -i ./css/input.css -o ./css/output.css --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
   },
-  "author": "Tejas Nayak",
-  "license": "ISC",
   "dependencies": {
-    "daisyui": "^5.2.0",
-    "express": "^4.19.2",
-    "portfolio": "file:",
-    "tailwindcss": "^4.1.14"
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "animejs": "^4.5.0",
+    "daisyui": "^5.6.3",
+    "framer-motion": "^12.42.0",
+    "gsap": "^3.15.0",
+    "next": "16.2.9",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "three": "^0.185.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4"
   }
 }
