@@ -1,7 +1,7 @@
 import Terminal from "@/components/Terminal";
 
 export const metadata = {
-  title: "Diagnostics Console | Tejas Nayak",
+  title: "Diagnostics Console",
   description: "Interactive terminal simulator with CLI commands and AI chatbot response system."
 };
 

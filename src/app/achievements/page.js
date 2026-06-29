@@ -1,7 +1,7 @@
 import AchievementsBody from "@/components/AchievementsBody";
 
 export const metadata = {
-  title: "Achievements | Tejas Nayak",
+  title: "Achievements",
   description: "Competition wins, funding grants, technical workshops, and event organizing milestones from Tejas Nayak's journey."
 };
 

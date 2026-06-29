@@ -1,7 +1,7 @@
 import ProjectsBody from "@/components/ProjectsBody";
 
 export const metadata = {
-  title: "Projects Explorer | Tejas Nayak",
+  title: "Projects Explorer",
   description: "Browse Tejas Nayak's GitHub repositories, open-source utilities, and AI projects."
 };
 

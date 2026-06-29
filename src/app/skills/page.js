@@ -1,7 +1,7 @@
 import SkillsBody from "@/components/SkillsBody";
 
 export const metadata = {
-  title: "Technical Skills | Tejas Nayak",
+  title: "Technical Skills",
   description: "Explore Tejas Nayak's programming languages, full-stack tools, and AI framework competencies."
 };
 

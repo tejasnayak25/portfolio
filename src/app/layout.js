@@ -17,16 +17,43 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Tejas Nayak | Full-Stack & AI Systems Architect",
+  metadataBase: new URL('https://www.tejasnayak.me'),
+  title: {
+    default: "Tejas Nayak | Full-Stack & AI Systems Architect",
+    template: "%s | Tejas Nayak"
+  },
   description: "Tejas Nayak manufactures premium digital products, high-interaction full-stack web applications, and integrated AI systems.",
   keywords: ["Tejas Nayak", "Systems Architect", "Fullstack Developer", "AI Developer", "Next.js", "Flutter", "Industrial Portfolio"],
   authors: [{ name: "Tejas Nayak" }],
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "/"
+  },
   openGraph: {
-    title: "Tejas Nayak | Computational Industrialism",
-    description: "An exhibition of digital systems manufacturing.",
-    url: "https://tejasnayak.dev",
+    title: "Tejas Nayak | Full-Stack & AI Systems Architect",
+    description: "Tejas Nayak manufactures premium digital products, high-interaction full-stack web applications, and integrated AI systems.",
+    url: "https://www.tejasnayak.me",
     siteName: "Tejas Nayak Portfolio",
+    images: [
+      {
+        url: "/images/share-poster.png",
+        width: 1200,
+        height: 630,
+        alt: "Tejas Nayak Portfolio"
+      }
+    ],
+    locale: "en_US",
     type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tejas Nayak | Full-Stack & AI Systems Architect",
+    description: "Tejas Nayak manufactures premium digital products, high-interaction full-stack web applications, and integrated AI systems.",
+    images: ["/images/share-poster.png"],
+    creator: "@tejasnayak25"
   }
 };
 
@@ -54,6 +81,31 @@ const accentScript = `
   })();
 `;
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tejas Nayak",
+  "url": "https://www.tejasnayak.me",
+  "image": "https://www.tejasnayak.me/images/photo.jpeg",
+  "jobTitle": "Full-Stack & AI Systems Architect",
+  "sameAs": [
+    "https://github.com/tejasnayak25",
+    "https://www.linkedin.com/in/tejas-nayak-3110a7220/",
+    "https://instagram.com/tjnayak"
+  ],
+  "knowsAbout": [
+    "Software Engineering",
+    "Systems Architecture",
+    "Artificial Intelligence",
+    "Next.js",
+    "React.js",
+    "Flutter",
+    "Node.js",
+    "Python",
+    "C++"
+  ]
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -68,6 +120,11 @@ export default function RootLayout({ children }) {
         {/* Local Material Symbols rounded stylesheet */}
         <link rel="stylesheet" href="/css/material-symbols.css" />
         <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+        {/* Structured Data Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[#121212] relative blueprint-dots select-none">
         

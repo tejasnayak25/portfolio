@@ -1,7 +1,7 @@
 import AboutBody from "@/components/AboutBody";
 
 export const metadata = {
-  title: "About Me | Tejas Nayak",
+  title: "About Me",
   description: "Read the biography, developer stats, and career journey of Tejas Nayak, Full-stack and AI engineer."
 };
 

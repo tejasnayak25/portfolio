@@ -1,7 +1,7 @@
 import ContactBody from "@/components/ContactBody";
 
 export const metadata = {
-  title: "Contact Rolodex | Tejas Nayak",
+  title: "Contact Rolodex",
   description: "Connect with Tejas Nayak via email, LinkedIn, GitHub, or social media networks."
 };
 
