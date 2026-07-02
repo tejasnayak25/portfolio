@@ -12,7 +12,7 @@ export default function AchievementsPage() {
         <span className="bg-black text-white px-2.5 py-0.5 text-[10px] font-mono font-black uppercase tracking-widest border border-black shadow-[2px_2px_0px_#000] rotate-[1.5deg]">
           Impact Metrics // MODULE_06
         </span>
-        <h1 className="text-5xl md:text-6xl font-black tracking-tight text-black uppercase comic-title-shadow mt-1">
+        <h1 className="text-[2.5rem] md:text-6xl font-black tracking-tight text-black uppercase comic-title-shadow mt-1">
           ACHIEVEMENTS
         </h1>
       </div>
